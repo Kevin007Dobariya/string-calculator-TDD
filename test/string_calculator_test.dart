@@ -69,6 +69,18 @@ void main() {
       // Assert
       expect(result, expected);
     });
-  
+
+    test('should return sum when custom delimiter ; is used', () {
+      // Arrange
+      final input = '//;\n1;2';
+      const expected = 3;
+
+      // Act
+      final result = calculator.add(input);
+
+      // Assert
+      expect(result, expected);
+    });
+    
   });
 }
