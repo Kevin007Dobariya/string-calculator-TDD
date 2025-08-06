@@ -168,35 +168,29 @@ void main() {
       },
     );
 
-    test(
-      'add function with negative sign as custom delimiter',
-      () {
-        // Arrange
-        final input = '//-\n1-2-3\n4';
-        const expected = 10;
+    test('add function with negative sign as custom delimiter', () {
+      // Arrange
+      final input = '//-\n1-2-3\n4';
+      const expected = 10;
 
-        // Act
-        final result = calculator.add(input);
+      // Act
+      final result = calculator.add(input);
 
-        // Assert
-        expect(result, expected);
-      },
-    );
+      // Assert
+      expect(result, expected);
+    });
 
-    test(
-      'add function with more than one character long custom delimiter',
-      () {
-        // Arrange
-        final input = '//*#*\n1*#*2*#*3\n4';
-        const expected = 10;
+    test('add function with more than one character long custom delimiter', () {
+      // Arrange
+      final input = '//*#*\n1*#*2*#*3\n4';
+      const expected = 10;
 
-        // Act
-        final result = calculator.add(input);
+      // Act
+      final result = calculator.add(input);
 
-        // Assert
-        expect(result, expected);
-      },
-    );
+      // Assert
+      expect(result, expected);
+    });
 
     test(
       'add function with more than one character long custom delimiter within []',
@@ -243,25 +237,20 @@ void main() {
       },
     );
     test('should fail on malformed custom delimiter declaration', () {
-     final input = '/;\n1;2';
+      final input = '/;\n1;2';
+      expect(() => calculator.add(input), throwsException);
+    });
+
+    test('should throw exception for invalid number', () {
+      final input = '1,a,3';
       expect(
-      () => calculator.add(input),
-      throwsException,
-    );
-  });
-
-test('should throw exception for invalid number', () {
-  final input = '1,a,3';
-  expect(
-    () => calculator.add(input),
-    throwsA(
-      predicate(
-        (e) =>
-            e is FormatException,
-      ),
-    ),
-  );
-});
-
+        () => calculator.add(input),
+        throwsA(predicate((e) => e is FormatException)),
+      );
+    });
+    test('should fail if custom delimiter not followed by newline', () {
+      final input = '//;1;2';
+      expect(() => calculator.add(input), throwsException);
+    });
   });
 }
