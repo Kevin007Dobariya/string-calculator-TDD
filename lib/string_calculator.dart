@@ -4,9 +4,13 @@ class StringCalculator {
     if (numbers.isEmpty) {
       return 0;
     }
-    // handle strings with single number
-    return int.parse(numbers);
-    
 
+    // handle strings with and comma as delimiters
+    List<String> parsedNumbers = numbers.split(',');
+    int sum = 0;
+    for (String number in parsedNumbers) {
+      sum += int.parse(number);
+    }
+    return sum;
   }
 }
