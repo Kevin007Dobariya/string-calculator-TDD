@@ -4,7 +4,8 @@ class StringCalculator {
     if (numbers.isEmpty) {
       return 0;
     }
-
+    // clean the input string
+    numbers = numbers.replaceAll('\n', ',');
     // handle strings with and comma as delimiters
     List<String> parsedNumbers = numbers.split(',');
     int sum = 0;
