@@ -133,7 +133,24 @@ void main() {
         ),
       );
     });
-  }); 
+    
+    test('should throw exception if negative numbers are used with custom delimiter', () {
+      // Arrange
+      final input = '//;\n1;-2;-3;4';
 
-   
+      // Act & Assert
+      expect(
+        () => calculator.add(input),
+        throwsA(
+          predicate((e) =>
+              e is Exception &&
+              e.toString().contains('negative numbers not allowed: -2,-3')),
+        ),
+      );
+    });
+    
+  
+  
+  
+  });  
 }
