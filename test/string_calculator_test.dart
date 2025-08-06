@@ -3,8 +3,12 @@ import 'package:string_calculator/string_calculator.dart';
 
 void main() {
  //create instance of StringCalculator
-      StringCalculator calculator = StringCalculator();
-  
+     late StringCalculator calculator = StringCalculator();
+  group("test add function", () {
+
+    setUp(() {
+      calculator = StringCalculator();
+    });
     test('should return 0 for an empty string', () {
       // Arrange
       final input = '';
@@ -16,4 +20,17 @@ void main() {
       // Assert
       expect(result, expected);
     });
+
+    test('should return integer for an single numbered string', () {
+      // Arrange
+      final input = '1';
+      const expected = 1;
+
+      // Act
+      final result = calculator.add(input);
+
+      // Assert
+      expect(result, expected);
+    });
+  });
 }
