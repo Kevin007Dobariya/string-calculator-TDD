@@ -7,12 +7,15 @@ class StringCalculator {
 
     //find Custom delimiter
     if (numbers.startsWith('//')) {
+      if (!numbers.contains('\n')) {
+        throw Exception('custom delimiter not followed by newline');
+      }
       String delimiter = numbers.substring(2, numbers.indexOf('\n'));
       // remove the custom delimiter line from the input string
       numbers = numbers.substring(numbers.indexOf('\n') + 1);
       // handle delimiter within []
       if (delimiter.startsWith("[") && delimiter.endsWith("]")) {
-        delimiter = delimiter.substring(1, delimiter.length-1);
+        delimiter = delimiter.substring(1, delimiter.length - 1);
         for (String customDelimiter in delimiter.split('][')) {
           numbers = numbers.replaceAll(customDelimiter, ',');
         }
