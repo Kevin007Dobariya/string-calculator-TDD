@@ -93,5 +93,19 @@ void main() {
       // Assert
       expect(result, expected);
     });
+    
+    test('should return 0 when custom delimiter is defined but no numbers given', () {
+      // Arrange
+      final input = '//;\n';
+      const expected = 0;
+
+      // Act
+      final result = calculator.add(input);
+
+      // Assert
+      expect(result, expected);
+    });
   });
+
+   
 }
