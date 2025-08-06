@@ -8,6 +8,7 @@ class StringCalculator {
     numbers = numbers.replaceAll('\n', ',');
     // handle strings with and comma as delimiters
     List<String> parsedNumbers = numbers.split(',');
+    parsedNumbers.removeWhere((item) => item.isEmpty);
     int sum = 0;
     for (String number in parsedNumbers) {
       sum += int.parse(number);
