@@ -7,7 +7,7 @@ class StringCalculator {
 
     //find Custom delimiter
     if (numbers.startsWith('//')) {
-      String delimiter = numbers.substring(2, 3);
+      String delimiter = numbers.substring(2, numbers.indexOf('\n'));
       // clean the input string
       numbers = numbers.replaceAll(delimiter, ',').replaceAll("//", ',');
     }
