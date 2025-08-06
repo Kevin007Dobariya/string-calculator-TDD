@@ -6,5 +6,7 @@ class StringCalculator {
     }
     // handle strings with single number
     return int.parse(numbers);
+    
+
   }
 }

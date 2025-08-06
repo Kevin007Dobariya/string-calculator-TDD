@@ -32,5 +32,20 @@ void main() {
       // Assert
       expect(result, expected);
     });
+
+    test('should return sum of numbers separated by comma as input string', () {
+      // Arrange
+      final input = '1,2';
+      const expected = 3;
+
+      // Act
+      final result = calculator.add(input);
+
+      // Assert
+      expect(result, expected);
+    });
+  
+  
+  
   });
 }
