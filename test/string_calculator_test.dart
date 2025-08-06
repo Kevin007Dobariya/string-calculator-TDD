@@ -242,5 +242,13 @@ void main() {
         expect(result, expected);
       },
     );
+    test('should fail on malformed custom delimiter declaration', () {
+     final input = '/;\n1;2';
+      expect(
+      () => calculator.add(input),
+      throwsException,
+    );
+  });
+
   });
 }
