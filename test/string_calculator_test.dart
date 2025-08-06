@@ -82,5 +82,16 @@ void main() {
       expect(result, expected);
     });
     
+    test('should return sum when custom delimiter | is used', () {
+      // Arrange
+      final input = '//|\n4|5|6';
+      const expected = 15;
+
+      // Act
+      final result = calculator.add(input);
+
+      // Assert
+      expect(result, expected);
+    });
   });
 }
