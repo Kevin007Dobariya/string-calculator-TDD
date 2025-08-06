@@ -93,7 +93,7 @@ void main() {
       // Assert
       expect(result, expected);
     });
-    
+
     test('should return 0 when custom delimiter is defined but no numbers given', () {
       // Arrange
       final input = '//;\n';
@@ -105,7 +105,18 @@ void main() {
       // Assert
       expect(result, expected);
     });
-  });
+    test('should throw exception if input contains a single negative number', () {
+
+      expect(
+     () => calculator.add('-1,2,3'),
+      throwsA(
+        predicate((e) =>
+        e is Exception &&
+        e.toString().contains('negative numbers not allowed: -1')),
+      ),
+    );
+    });
+  }); 
 
    
 }
