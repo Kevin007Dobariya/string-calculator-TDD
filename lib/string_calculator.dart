@@ -1,5 +1,5 @@
-/// A Calculator.
-class Calculator {
-  /// Returns [value] plus 1.
-  int addOne(int value) => value + 1;
+//create a class StringCalculator for adding numbers
+class StringCalculator {
+   add(String numbers)
+   {}
 }
