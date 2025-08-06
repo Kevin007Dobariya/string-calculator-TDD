@@ -250,5 +250,18 @@ void main() {
     );
   });
 
+test('should throw exception for invalid number', () {
+  final input = '1,a,3';
+  expect(
+    () => calculator.add(input),
+    throwsA(
+      predicate(
+        (e) =>
+            e is FormatException,
+      ),
+    ),
+  );
+});
+
   });
 }
