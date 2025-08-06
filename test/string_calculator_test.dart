@@ -115,6 +115,23 @@ void main() {
         e.toString().contains('negative numbers not allowed: -1')),
       ),
     );
+
+    
+    });
+    
+    test('should throw exception if input contains multiple negative numbers', () {
+      // Arrange
+      final input = '-1,2,-3,4';
+
+      // Act & Assert
+      expect(
+        () => calculator.add(input),
+        throwsA(
+          predicate((e) =>
+              e is Exception &&
+              e.toString().contains('negative numbers not allowed: -1,-3')),
+        ),
+      );
     });
   }); 
 
