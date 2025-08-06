@@ -3,7 +3,7 @@ import 'package:string_calculator/string_calculator.dart';
 
 void main() {
  //create instance of StringCalculator
-     late StringCalculator calculator = StringCalculator();
+     late StringCalculator calculator;
   group("test add function", () {
 
     setUp(() {
@@ -45,7 +45,17 @@ void main() {
       expect(result, expected);
     });
   
-  
+    test('should return sum of numbers separated by comma and containing multiple lines as input string', () {
+      // Arrange
+      final input = '1,2\n3';
+      const expected = 6;
+
+      // Act
+      final result = calculator.add(input);
+
+      // Assert
+      expect(result, expected);
+    });
   
   });
 }
