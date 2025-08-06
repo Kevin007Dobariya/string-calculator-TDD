@@ -182,5 +182,22 @@ void main() {
         expect(result, expected);
       },
     );
+
+    test(
+      'add function with more than one character long custom delimiter',
+      () {
+        // Arrange
+        final input = '//*#*\n1*#*2*#*3\n4';
+        const expected = 10;
+
+        // Act
+        final result = calculator.add(input);
+
+        // Assert
+        expect(result, expected);
+      },
+    );
+
+
   });
 }
