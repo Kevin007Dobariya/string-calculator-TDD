@@ -13,6 +13,9 @@ class StringCalculator {
       // handle delimiter within []
       if (delimiter.startsWith("[") && delimiter.endsWith("]")) {
         delimiter = delimiter.substring(1, delimiter.length-1);
+        for (String customDelimiter in delimiter.split('][')) {
+          numbers = numbers.replaceAll(customDelimiter, ',');
+        }
       }
       // clean the input string
       numbers = numbers.replaceAll(delimiter, ',');
