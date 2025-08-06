@@ -8,8 +8,14 @@ class StringCalculator {
     //find Custom delimiter
     if (numbers.startsWith('//')) {
       String delimiter = numbers.substring(2, numbers.indexOf('\n'));
+      // remove the custom delimiter line from the input string
+      numbers = numbers.substring(numbers.indexOf('\n') + 1);
+      // handle delimiter within []
+      if (delimiter.startsWith("[") && delimiter.endsWith("]")) {
+        delimiter = delimiter.substring(1, delimiter.length-1);
+      }
       // clean the input string
-      numbers = numbers.replaceAll(delimiter, ',').replaceAll("//", ',');
+      numbers = numbers.replaceAll(delimiter, ',');
     }
 
     // replace \n with ,
