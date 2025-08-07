@@ -254,10 +254,18 @@ void main() {
     });
     test('should throw exception if unexpected delimiter is used', () {
       final input = '//;\n1,2'; // ',' used instead of ';'
-      expect(
-        () => calculator.add(input),
-        throwsException,
-      );
+      expect(() => calculator.add(input), throwsException);
+    });
+    test('should return sum of numbers separated by multiple custom delimiters containing  comma', () {
+      // Arrange
+      final input = '//[;][,]\n1,2';
+      const expected = 3;
+
+      // Act
+      final result = calculator.add(input);
+
+      // Assert
+      expect(result, expected);
     });
   });
 }
