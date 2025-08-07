@@ -11,8 +11,13 @@ class StringCalculator {
         throw Exception('custom delimiter not followed by newline');
       }
       String delimiter = numbers.substring(2, numbers.indexOf('\n'));
+
       // remove the custom delimiter line from the input string
       numbers = numbers.substring(numbers.indexOf('\n') + 1);
+      // check if delimiter is not a comma and input string contains a comma
+      if (!delimiter.contains(',') && numbers.contains(',')) {
+        throw Exception('unexpected delimiter is used');
+      }
       // handle delimiter within []
       if (delimiter.startsWith("[") && delimiter.endsWith("]")) {
         delimiter = delimiter.substring(1, delimiter.length - 1);
@@ -23,7 +28,6 @@ class StringCalculator {
       // clean the input string
       numbers = numbers.replaceAll(delimiter, ',');
     }
-
     // replace \n with ,
     numbers = numbers.replaceAll('\n', ',');
     // handle strings with and comma as delimiters
