@@ -252,5 +252,12 @@ void main() {
       final input = '//;1;2';
       expect(() => calculator.add(input), throwsException);
     });
+    test('should throw exception if unexpected delimiter is used', () {
+      final input = '//;\n1,2'; // ',' used instead of ';'
+      expect(
+        () => calculator.add(input),
+        throwsException,
+      );
+    });
   });
 }
